@@ -1,0 +1,39 @@
+{% extends "core/base.html"%} {% block content%}
+<div class="container">
+  <div class="jumbotron">
+    <h1 style="text-align: center; font-weight: 900">TODO APP</h1>
+    <hr />
+    {% for todo in todos%}
+    <div style="border: 1px solid black; padding: 10px">
+      <h3 style="text-align: center; color: red">{{todo.title}}</h3>
+      <p style="text-align: center; font-size: 14px; color: green">
+        {{todo.description}}
+      </p>
+      <p style="text-align: center; font-size: 12px">{{todo.created_at}}</p>
+
+      <div style="display: flex; justify-content: center">
+        <button
+          type="button"
+          style="margin-right: 20px"
+          class="btn btn-success"
+        >
+          Edit
+        </button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </div>
+      {% comment %}
+      <a style="font-size: 15px; margin-left: 10px; align-items: center" href=""
+        >Mark as Completed</a
+      >
+      {% endcomment %}
+    </div>
+    <hr />
+    {% endfor%}
+    <div style="display: flex; justify-content: center">
+      <a href="{%  url 'add' %}"
+        ><button type="button" class="btn btn-primary">Add Todo</button></a
+      >
+    </div>
+  </div>
+</div>
+{% endblock content%}
