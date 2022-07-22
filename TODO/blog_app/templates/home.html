@@ -12,14 +12,16 @@
       <p style="text-align: center; font-size: 12px">{{todo.created_at}}</p>
 
       <div style="display: flex; justify-content: center">
-        <button
-          type="button"
+        <a
+          href="{% url 'edit' id=todo.id%}"
           style="margin-right: 20px"
           class="btn btn-success"
         >
           Edit
-        </button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        </a>
+        <a href="{% url 'delete' id=todo.id %}" class="btn btn-danger"
+          >Delete</a
+        >
       </div>
       {% comment %}
       <a style="font-size: 15px; margin-left: 10px; align-items: center" href=""
@@ -32,6 +34,12 @@
     <div style="display: flex; justify-content: center">
       <a href="{%  url 'add' %}"
         ><button type="button" class="btn btn-primary">Add Todo</button></a
+      >
+      <a
+        style="margin-left: 10px"
+        href="{% url 'delete-all'%}"
+        class="btn btn-danger"
+        >Delete</a
       >
     </div>
   </div>
