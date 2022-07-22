@@ -13,4 +13,38 @@ def add(request):
         d=request.POST["description"]
         Todo.objects.create(title=t,description=d,completed=False)
         return redirect("/home/")
+    
+    
+def delete(request,id):
+    Todo.objects.get(id=id).delete();
+    return redirect("home")
+    
+    
+def edit(request,id):
+    todo=Todo.objects.get(id=id)
+    try:
+        if request.method=="GET":
+            return render(request,"edit.html",{'todo':todo})
+        
+        else:
+            title=request.POST["title"]
+            description=request.POST["description"]
+            
+            todo.title=title
+            todo.description=description
+            
+            todo.save()
+            return redirect("home")
+    except:
+        return ("Something Error occured")
+    
+def delete_all(request):
+    Todo.objects.all().delete()
+    return redirect("home")
+        
+    
+    
+    
+    
+    
         
