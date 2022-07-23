@@ -42,6 +42,15 @@ def delete_all(request):
     Todo.objects.all().delete()
     return redirect("home")
         
+def mark_complete(request,id):
+    todo=Todo.objects.get(id=id)
+    todo.completed= not todo.completed
+    todo.save()
+    return redirect("home")
+    
+
+    
+
     
     
     
