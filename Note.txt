@@ -1,0 +1,7 @@
+create project
+create app
+register the app
+create urls
+include the urls in the project
+create urls into the app 
+register the template into the project
