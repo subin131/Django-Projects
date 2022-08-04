@@ -1,0 +1,23 @@
+{% extends "core/base.html" %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      {% for item in data%}
+
+      <h1>{{ item.username }}</h1>
+      <a href=" "
+        ><button type="submit" class="btn btn-success">Edit</button></a
+      >
+      <a href="{% url 'delete' id=item.id %}"
+        ><button type="submit" class="btn btn-danger">Delete</button></a
+      >
+
+      {% endfor %}
+      <a href="{% url 'add'  %}" class="btn-btn-danger"
+        ><button>Add More</button></a
+      >
+    </div>
+  </div>
+
+  {% endblock %}
+</div>
