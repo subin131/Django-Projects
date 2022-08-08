@@ -1,0 +1,37 @@
+{% extends "core/base.html"%} {% block content %}
+
+<div class="container">
+  <div class="jumbotron">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <h2>Adding Blog</h2>
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            placeholder="Enter Title"
+            name="title"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="content">Content</label>
+          <input
+            type="text"
+            class="form-control"
+            id="content"
+            placeholder="Enter Content"
+            name="content"
+            required
+          />
+        </div>
+    
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
+  <div>{% endblock content%}</div>
+</div>
